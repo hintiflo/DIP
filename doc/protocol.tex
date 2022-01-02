@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+% \usepackage[latin1]{inputenc}
+\usepackage[ngerman,naustrian]{babel}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{ulem}
+\usepackage{here}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsthm}
+\usepackage{gensymb}
+\usepackage{fancyhdr}
+\usepackage[left=20mm,top=25mm,bottom=25mm,right=20mm,headheight=15mm,headsep=10mm,footskip=10mm]{geometry}
+\usepackage{longtable}
+\usepackage{hhline}
+\usepackage[table]{xcolor}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathcomp}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{listings}
+\renewcommand{\familydefault}{\sfdefault}
+		% \sffamily
+
+\newcommand{\bild}[3]{
+% \begin{figure}[H!]		
+\begin{center}			\includegraphics[#3]{#1}			
+% \caption{#2}
+		\end{center}	
+% \end{figure}
+}
+
+\begin{document}
+
+%\pagestyle{empty}
+\begin{titlepage}
+	\begin{center}
+		{\large{FH OÖ - Hagenberg \\ embedded systems design}\\\vspace*{4cm}}
+		\small{HSC2-Übung}\\
+		\textbf{SS 2021}\\\vspace*{2cm}
+		\Huge{\textbf{Protokoll}}\\\vspace*{1cm}
+		\huge{Übung\,1: CORDIC-Algorithums\\ \large{Berechnung von Winkelfunktionen auf einem FPGA via SystemC} } \vspace*{90mm}
+		
+		\small{Florian Berghuber S2010567001 \\
+		Florian Hinterleitner S2010567014	\\
+		}
+	\end{center}
+\end{titlepage}
+
+% \tableofcontents
+% \newpage
+% \setcounter{page}{18}
+% \setcounter{section}{3}
+ 
+\section{Übungsaufgabe: Cordic-Algorithmus}
+% screenshots
+% Timing-tabelle
+
+\subsection{Interface}
+Eine register- und bitgenaue Implementierung des Interfaces zum Cordic soll eine nahtlose Anbindung des Algorithmus an den rest der Firmware erleichtern: \\
+	% \bild{Interface}{Interface}{width=0.45\textwidth}
+\subsection{Algorithmus}
+Der Algorithmus selbst wurde entsprechend dem MATLAB-Prototypen in CPP umgesetzt.
+Erweitert allerdings um das Handling der Status-Flags 'Start' und 'Ready'.
+
+	% \bild{Algo}{Implementierung}{width=0.45\textwidth}
+	% \lstinputlisting[language=C++]{../ue1/cordic.cpp}
+
+\subsection{Testing}
+	Alle Testcases im geforderten Intervall [0°, 90°] liefern korrekte Werte, verglichen mit Werten generiert aus der CPP-Math-Library. \\
+	Die relativen Fehler für y im TC1 und für x im TC10 geben zwar alarmierende Werte aus, können jedoch als ungültig ignoriert werden. Dies liegt daran da jeweils durch sehr kleine Zahlen nahe der 0 dividiert wird, die berechneten Winkelfunktionen sind jedoch korrekt. \\
+	Mit negativen Werten angeregt, liefert der Algorithmus falsche Ergebnisse, dieser Wertebereich war jedoch auch nicht spezifiziert, ebenso Eingaben oberhalb von 90°.
+	% \bild{ConsoleOutput}{ConsoleOutput}{width=0.5\textwidth}
+
+\end{document} 
