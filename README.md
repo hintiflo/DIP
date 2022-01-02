@@ -1,2 +1,2 @@
 # DIP
-Flo&amp;Flo arbeitung des DIP3-Projektes
+Flo&amp;Flo Ausarbeitung des DIP3-Projektes
