@@ -24,11 +24,11 @@ y_true, y_pred = [], [] # container for ground truth label and predicted label
 
 
 for class_label, defect_type in enumerate(defects):
-    imageDir = "../../img/" + defects[defect_type]['dir']
+    imageDir = "../img/" + defects[defect_type]['dir']
 
     # read all images from folders given in a list
     for imagePath in glob.glob(imageDir + "*.jpg"):
-
+        print(imagePath)
         img = cv2.imread(imagePath)
         if img is None:
             print("Error loading: " + imagePath)
