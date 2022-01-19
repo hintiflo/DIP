@@ -1,1 +1,4 @@
 https://colab.research.google.com/drive/10oV1mL9IXvqx4cgSovJMX7hZogAEXH7D?usp=sharing
+
+interesting Links:
+https://docs.opencv.org/4.x/dc/d70/pytorch_cls_tutorial_dnn_conversion.html
