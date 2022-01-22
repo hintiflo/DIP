@@ -1,2 +1,9 @@
-python detect.py --weights best500.pt --source img/test/images --save-txt --max-det 1
-			model			input		Ergebnis speichern	maximum 1 Detection
+python yolov5-master/detect.py --weights ../smodel/best.pt --source ../img/0-Normal --save-txt --max-det 1 --nosave --name ../../../runs/exp --imgsz 300
+
+--weights: path to model
+--source: path to img folder
+--save-txt: save predicted labels
+--max-det: maximum amount of detections per images
+--nosave: do not save predicted images
+--name: where to save results
+--imgsz: inference size of model 
