@@ -14,7 +14,7 @@ def inspect_image(img, defects):
 
 
 # read background image for shading correction
-imgbackground = cv2.imread('../../img/Other/image_100.jpg')
+imgbackground = cv2.imread('../img/Other/image_100.jpg')
 
 template, defects = init.initdata()
 
