@@ -3,8 +3,10 @@ Flo&amp;Flo Ausarbeitung des DIP3-Projektes \
 
 ### structure
 
-inspection.py ist der Einstiegspunkt / die main des ganzn Projektes \
-dort ist 'inspect_image' enthalten in das wir unsern Kram einbauen sollen \
-finden und durch-schleiferln aller Bilder ist ausgearbeitet \
+InspectorGadget.py ist der Einstiegspunkt / die main des ganzn Projektes \
+dort sind auch alle TODOs enthalten
+
+außerdem TODO: cleanup der vorgegebenen Struktur vom Steibeneiner
+
 
 imutils.py und initdata.py sind helper-files
