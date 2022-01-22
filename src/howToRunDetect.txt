@@ -1,0 +1,2 @@
+python detect.py --weights best500.pt --source img/test/images --save-txt --max-det 1
+			model			input		Ergebnis speichern	maximum 1 Detection

@@ -1,0 +1,13 @@
+names:
+- Combo
+- NoArm
+- NoFace
+- NoHand
+- NoHat
+- NoHead
+- NoLeg
+- NoPrint
+- correct
+nc: 9
+train: Indi2-1/train/images
+val: Indi2-1/valid/images
