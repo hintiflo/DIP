@@ -1,4 +1,4 @@
-python yolov5-master/detect.py --weights ../smodel/best.pt --source ../img/0-Normal --save-txt --max-det 1 --nosave --name ../../../runs/exp --imgsz 300
+python yolov5-master/detect.py --weights ../smodel/modelV2.pt --source ../img/0-Normal --save-txt --max-det 1 --nosave --name ../../../runs/exp --imgsz 416
 
 --weights: path to model
 --source: path to img folder
