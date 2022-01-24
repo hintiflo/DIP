@@ -1,0 +1,161 @@
+\documentclass[ignorenonframetext,naustrian,12pt,t]{beamer}
+\include{newcomm}
+% \documentclass[austrian,chapterprefix,headsepline,parskip,pdftex,pointlessnumbers]{article}
+
+
+\input{praes_header}    % Darko header.tex uebernommen -> alle Packages hier drinnen
+\author{Florian Hinterleitner}
+\title{DIP3}
+\subtitle{Indy Erkennung}
+% \setbeamercovered{transparent} 
+% \setbeamertemplate{sidebar canvas left}{}
+\setbeamertemplate{navigation symbols}{} 
+% \setbeameroption{show notes on second screen=right}
+
+%\logo{} 
+% \institute{FHOÖ, Hagenberg} 
+\date{12. November 2021} 
+%\subject{} 
+
+\usepackage[export]{adjustbox}
+\usepackage{movie15}
+% \usepackage{multimedia}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% \usepackage{multirow}
+% \usepackage{mathtools}
+
+\newcommand{\vglWidth}{\textwidth/5}
+
+\begin{document}
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+\section{Konzept}
+	\begin{frame}
+		\frametitle{YOLOv5}
+		\begin{itemize}[label={\color{myTitleColour}\textbullet}]
+		\item Ansatz per KI
+		\item	Wasn das?, warum das?, wie gett das?
+		\end{itemize}
+	\end{frame}
+	
+
+\section{Umsetzung}
+	\begin{frame}
+	\frametitle{Anwendungsbereiche}
+		\begin{columns}
+      \begin{column}{0.5\textwidth}
+		\begin{itemize}[label={\color{myTitleColour}\textbullet}]
+		% \item Verpackungs- und Papiermaschinen 
+		\item Spritzgussanlagen, Hochgeschwindigkeits - Pressen 
+		\item Hydraulikregelungen 
+				\note {Bagger, Kran, \\}
+		\item Chemie und Petrochemie
+			\note {weil Sicherheits Konzept 'Saftey over EtherCAT' \\}
+		\item CNC-Bearbeitungszentren, interaktive Roboter-Gruppen 
+		\item automotive/mechatron. Prüfstände mit Vielzahl an Sensoren 
+			\note {die alle gesynct gehören \\}
+		\end{itemize}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+		erhältliche Nodes:
+		\begin{itemize}[label={\color{myTitleColour}\textbullet}]
+		\item Antriebs-Controller 
+			\begin{itemize}[label={\color{myTitleColour}\textbullet}]
+			\item Servo Drives
+			% \item Inverter
+			% \item Stepper-Driver
+			\item kompletter SCARA-Controller
+				\note {Denso RC8A \\}
+		\end{itemize}
+		% \item Pneumatische Druckluftventile
+		\item Massenflussregler 
+		\item Vacuum Gauge
+			\note {PCG55x Pirani Capacitance Diaphragm Vacuum Gauge, Vakuum manometer \\}
+		\item stereo-Vision Sensoren
+			\note {HighSpeed Cam von Sick \\}
+		\end{itemize}
+      \end{column}
+   \end{columns}
+	\vspace{5mm}
+	\centering https://www.ethercat.org/de/products.html
+	\end{frame}
+
+\section{Ergebnisse}
+\begin{frame}
+	\frametitle{Ergebnisse}
+		 \includegraphics[width=0.2\textwidth]{Bergi.png} 		 \includegraphics[width=0.2\textwidth]{Eiben.jpg} 		 \includegraphics[width=0.2\textwidth]{Silbereisen.jpg} 		 \includegraphics[width=0.2\textwidth]{Starzer.png} 
+		\begin{itemize}[label={\color{myTitleColour}\textbullet}]
+		\item Result: 97\% Flöe, +- 5.43\%
+		\end{itemize}
+\end{frame}
+
+% \section{Topologien}
+% \begin{frame}
+	% \frametitle{mögliche Topologien}
+	% \begin{columns}
+      % \begin{column}{0.5\textwidth}
+			% \begin{itemize}
+				% \item Linie
+				% \item Daisy-Chain
+				% \item Baum
+				% \item Stern
+			% \end{itemize}
+			% praktisch beliebig
+      % \end{column}
+      % \begin{column}{0.5\textwidth}
+			% \includegraphics[width=\textwidth]{topologien.jpg} \\
+			% \includegraphics[width=\textwidth]{topologien.png}
+      % \end{column}
+	% \end{columns}
+% \end{frame}
+
+
+% \section{Datenframe}
+	% \begin{frame}
+		% \frametitle{Datenframe}
+		% \begin{center} 		\includegraphics[width=0.65\textwidth]{Telegram} 	\end{center}
+	% \end{frame}
+
+% \section{Zyklus}
+	% \begin{frame}
+		% \frametitle{Netzwerk-Zyklus}
+		% \begin{center} 		\includegraphics[width=0.65\textwidth]{datenaustausch.jpg} 	\end{center}
+	% \end{frame}
+
+	% \begin{frame}
+		% \frametitle{Netzwerk-Zyklus}
+			% \includegraphics[width=\textwidth]{NetCycleHalf}
+	% \end{frame}
+	
+	% \begin{frame}
+		% \frametitle{Netzwerk-Zyklus}
+			% \includegraphics[width=\textwidth]{NetCycle}
+	% \end{frame}
+
+% \section{ProcessSync}
+	% \begin{frame}
+		% \frametitle{ProcessSync}
+		% \includegraphics{EtherCatProcessSync.jpg}
+	% \end{frame}
+
+\section{}
+\begin{frame}{Schluss}
+   \begin{center}
+	% \includegraphics[height=0.15\textheight, right]{Logo}
+      \vspace{1cm}
+      \Huge \textbf{Danke fürs zuhören} \\
+   \end{center}
+\end{frame}
+
+
+
+\end{document}
+
+

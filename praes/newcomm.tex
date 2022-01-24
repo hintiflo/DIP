@@ -1,0 +1,33 @@
+% newcomm
+
+% \usepackage[left=25mm,top=25mm,bottom=25mm,right=25mm,headheight=15mm,headsep=10mm,footskip=10mm,portrait]{geometry}
+
+\newcommand{\mytable}[1]{ \begin{table}[h!]	  \begin{center}		\begin{tabular}{#1} }
+\newcommand{\mytableend}[1]{ \end{tabular}	\end{center}	\caption{#1}\label{tab::#1}\end{table} }
+
+\newcommand{\link}[1]{\todo{#1}}
+\newcommand{\bzw}{beziehungsweise }
+
+\newcommand{\osciwidth}{0.9}
+\newcommand{\UrefADhalbe}{$\frac{U_{\mathrm{ref,AD}}}{2}$ }
+\newcommand{\UrefDAhalbe}{$\frac{U_{\mathrm{ref,DA}}}{2}$ }
+\newcommand{\UrefAD}{$U_{\mathrm{ref,AD}}$ }
+\newcommand{\UrefDA}{$U_{\mathrm{ref,DA}}$ }
+\newcommand{\includegraphic}[2]{\begin{figure}[ht!] \centering \includegraphics[width=      0.75\textwidth]{#1}\caption{#2}					\end{figure}}
+\newcommand{\includeosci}[2]{	\begin{figure}[ht!] \centering \includegraphics[width=\osciwidth\textwidth]{#1}\caption{#2}\label{fig::#2}	\end{figure}}
+\newcommand{\aufgabe}{
+	\begin{bf}	Aufgabenstellung: \newline
+	\end{bf}	}
+\newcommand{\skizze}{
+	\begin{bf}	Skizze: 
+	\end{bf}	}
+\newcommand{\mess}{
+	\begin{bf}	Messwerte: 
+	\end{bf}	}
+\newcommand{\ergeb}{
+	\begin{bf}	Ergebnisse: 
+	\end{bf}	}
+\newcommand{\geret}{
+	\begin{bf}	Geräteliste: 
+	\end{bf}	}
+

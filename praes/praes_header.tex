@@ -1,0 +1,265 @@
+\mode<article> {
+%  \usepackage{fullpage}
+  \usepackage{pgf}
+  \setjobnamebeamerversion{unterlagen.beamer}
+}
+
+% \mode<presentation> {
+%  \usetheme{Dresden}
+%  \useinnertheme[shadow]{rounded}
+%
+%  \setbeamercovered{transparent}
+%%% Formatierung Folien
+
+    \setbeamercovered{transparent}
+
+    \usetheme{default}
+    % \usetheme{Dresden}
+    % \usetheme{Berkeley}
+    \useinnertheme[shadow]{rounded}
+    % Navigation oben drueber:
+	\useoutertheme[footline=ml]{miniframes}
+	% \useoutertheme{smoothtree}
+    % \usetheme{PaloAlto}
+    % \usetheme{Marburg}
+	% \usetheme{Boadilla} % load `/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeBoadilla.sty`
+	% \useoutertheme[left]{sidebar}
+
+    \makeatletter
+    \def\beamer@theme@footline@ml{
+    \defbeamertemplate*{footline}{miniframes theme}
+    {%
+        \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+        leftskip=.12cm,rightskip=.12cm plus1fil]{author in head/foot}%
+        \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+        \hfill%
+        {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+        leftskip=.12cm,rightskip=.12cm plus1fil]{title in head/foot}%
+        {\usebeamerfont{title in head/foot}\insertshorttitle}%
+        \hfill%
+        {\usebeamerfont{title in head/foot}\thepage}%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+        \end{beamercolorbox}
+    }
+    } \makeatother
+
+
+
+    %%% Title Page
+    \setbeamerfont{title}{series=\bfseries}
+    \setbeamerfont{subtitle}{series=\bfseries}
+    \setbeamerfont{author}{series=\bfseries}
+    \setbeamerfont{institute}{series=\bfseries}
+    \setbeamerfont{date}{series=\bfseries}
+
+    %%% Seitenfomatierung
+    %\setbeamerfont{itemize/enumerate body}{series=\bfseries}
+    %\setbeamerfont{itemize/enumerate subbody}{series=\normalfont}
+    %\setbeamerfont{title in head/foot}{size=\footnotesize}
+    %\setbeamertemplate{blocks}[default]
+
+    %%% Farben Text
+    \xdefinecolor{myTitleColour}{rgb}{0.2,0.203921569,0.403921569}
+    \xdefinecolor{myNormalColour}{rgb}{0.384313725,0.419607843,0.431372549}
+%    \xdefinecolor{myTitleColour}{rgb}{1.0,0.0,0.0}
+%    \xdefinecolor{myNormalColour}{rgb}{0.650980392,0.156862745,0.101960784}
+    \setbeamercolor{structure}{fg=myTitleColour}
+    \setbeamercolor{frametitle}{fg=myTitleColour,bg=white}
+    \setbeamerfont{frametitle}{series=\bfseries}
+    \setbeamercolor{normal text}{fg=myNormalColour}
+    \setbeamercolor*{palette primary}{use=structure,fg=white,bg=structure.fg}
+    \setbeamercolor*{palette secondary}{use=structure,fg=white,bg=structure.fg!75!black}
+    \setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=structure.fg!50!black}
+    \setbeamercolor*{palette quaternary}{fg=white,bg=black}
+    \setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+    \setbeamercolor*{palette sidebar primary}{use=structure,fg=structure.fg!10}
+    \setbeamercolor*{palette sidebar secondary}{fg=white}
+    \setbeamercolor*{palette sidebar tertiary}{use=structure,fg=structure.fg!50}
+    \setbeamercolor*{palette sidebar quaternary}{fg=white}
+    \setbeamercolor*{titlelike}{parent=palette primary}
+    \setbeamercolor*{separation line}{}
+    \setbeamercolor*{fine separation line}{}
+% }
+
+%\usepackage{lmodern}
+
+%% Bei jeder Subsection einzufügender Inhalt
+% \AtBeginSection[] {
+    % \begin{frame}<beamer>
+    % \frametitle{Table of contents}
+    % \tableofcontents[currentsection,currentsubsection]
+    % \end{frame}
+% }
+
+%%% Bei jeder Subsection einzufgender Inhalt
+%\AtBeginSubsection[] {
+%    \begin{frame}<beamer>
+%    \frametitle{Table of Contents}
+%    \tableofcontents[currentsection,currentsubsection]
+%    \end{frame}
+%}
+
+%%% Bei jeder Lecutre einzufgender Inhalt (dzt. nicht verwendet)
+%\AtBeginLecture{
+%    \frame{\Large asdf Today's Lecture: \insertlecture}
+%}
+
+\AtBeginLecture{
+    \begin{frame}
+    \frametitle{}
+%    \normalsize
+%    ~\\
+    \vfill
+    \begin{center}
+        \LARGE \textbf{\insertlecture}
+    \end{center}
+    \vfill
+%    \normalsize
+%    ~\\~\\
+    \end{frame}
+}
+
+
+%%% Seitenlayout ver�dern
+\setbeamersize{text margin left=2em} \setbeamersize{text margin
+right=2em} \addtobeamertemplate{frametitle}{}{\vspace{-1.5ex}}
+
+%%% Instituts-Logo
+%\pgfdeclareimage[height=0.4cm]{university-logo}{logo}
+%\logo{\pgfuseimage{university-logo}}
+
+%%% List stuff
+\setlength\leftmargini {1.0em} \setlength\leftmarginii {1.5em}
+\setlength\leftmarginiii {1.5em}
+
+
+%%% fr Source-Code
+\usepackage{listings}
+
+\lstset{% general command to set parameter(s)
+columns=fixed,
+basicstyle=\scriptsize \ttfamily, % print whole listing small
+tabsize=2, %
+keywordstyle=\color[rgb]{0.00,0.00,0.50}{}\bfseries,
+% underlined bold black keywords
+%identifierstyle=, % nothing happens
+commentstyle=\color[rgb]{0.00,0.50,0.25}{}, % white comments
+%stringstyle=\ttfamily, % typewriter type for strings
+showstringspaces=false, % no special string spaces
+numbers=left, numberstyle=\tiny, numbersep=10pt,
+language=[LaTeX]TeX}
+
+%%% Deutsche Sprache
+%
+% Paket zum �ersetzen
+%
+\usepackage[ngerman]{babel}
+%
+% Eingabe von Umlauten
+%
+\usepackage[utf8]{inputenc}
+
+% \usepackage{ae}
+%\usepackage{times}
+%\usepackage[scaled=.80]{helvet}
+%\usepackage{courier}
+
+%
+% Verwenden von T1 Fonts
+%
+% \usepackage[T1]{fontenc}
+
+
+% for colours
+% \usepackage[pdftex]{color}
+% for colours
+% \usepackage{xcolor}
+
+
+% \usepackage[pdftex]{graphicx}
+
+% For URLs
+\usepackage{url}
+
+
+\usepackage{longtable}
+\usepackage{supertabular}
+%\usepackage{array}
+%\usepackage{tabularx}
+\usepackage{colortbl}
+%% Farbe der Tabellenlinien
+%\arrayrulecolor[rgb]{0.0,0.0,1.0}
+%% Die Staerke der Linien:
+%\setlength{\arrayrulewidth}{0.25mm}
+
+%% Befehl
+\newcommand{\Befehl}[1]{\texttt{\textbackslash #1}}
+\newcommand{\BefehlP}[2]{\texttt{\textbackslash #1\{#2\}}}
+\newcommand{\BefehlOP}[3]{\texttt{\textbackslash #1[#2]\{#3\}}}
+\newcommand{\Umgebung}[1]{\texttt{\{#1\}}}
+
+\newcommand{\Infosubsection}[2]{}   %%% alter befehl, jetzt leer
+
+%\newcommand{\Infosubsection}[2]{\frame{ \frametitle{}\vfill
+%\begin{center}
+%\Huge \textcolor[rgb]{0.00,0.00,0.50}{\textbf{#1}}
+%~\\
+%\huge \textbf{#2}
+%\end{center}
+%\vfill }}
+
+
+\usepackage{ifthen}
+
+\newboolean{showExampleResults}
+
+\setboolean{showExampleResults}{true}
+
+\newcommand{\exampleResult}[2]{
+\ifthenelse{\boolean{showExampleResults}}
+{\pgfimage[interpolate=true, height=#2]{Examples/#1}} {}}
+
+\usepackage{numprint}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%%% Einbinden von kompletten PDF-Seiten
+\usepackage{pdfpages}
+
+%\usepackage[colorlinks=true,
+%    linkcolor=black,
+%    citecolor=black,
+%    pagecolor=black,
+%    urlcolor=black,
+%    breaklinks=true,
+%    bookmarksnumbered=true,
+%    hypertexnames=false,
+%    pdfpagemode=UseOutlines,
+%    pdfview=FitH,
+%    plainpages=false,
+%    pdfpagelabels,
+%    bookmarks=true,
+%    linktocpage=true]{hyperref}
+%
+%\hypersetup{pdfauthor={Michael Leitner},
+%    pdftitle={Vorlesungsskript LaTeX},
+%    pdfsubject={},
+%    pdfkeywords={},
+%    pdfcreator={ML / pdfLaTeX with hyperref (\today})}
+
+
+%\usepackage{eurosym}
+\usepackage{textcomp}
+\usepackage{marvosym}
+
+% \usepackage{lmodern}
+
+
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
