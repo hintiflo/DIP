@@ -1,6 +1,7 @@
 import os
 import re
 import shutil
+import time
 
 # TODO: difference List fuer noResults
 # TODO: eigenltiche Analyse direkt aus diesem py heraus starten
@@ -10,10 +11,19 @@ import shutil
 # TODO: %te bzw Statkstik der Analyse printen
 # TODO: 
 
+# python yolov5-master/detect.py --weights ../smodel/modelV2.pt --source ../img/All --save-txt --max-det 1 --nosave --name ../../../runs/exp --imgsz 416
+
+
+start = time.perf_counter_ns()
+os.system("python yolov5-master/detect.py --weights ../smodel/modelV3.pt --source ../img/All --save-txt --max-det 1 --nosave --name res --imgsz 308 --project ../ ")
+end = time.perf_counter_ns()
+
+print("elapsed ms: ")
+print( (end - start)/1000000)
+
 
 resultPath = "../res/labels"
 allPath = "../img/All"
-# results = []
 
 resIndex = {	0 : "Combo", 
 				1 : "NoArm", 
@@ -26,12 +36,8 @@ resIndex = {	0 : "Combo",
 				8 : "correct"
 			}
 
-# for i in range(len(resIndex)):
-	# print(resIndex[i])
-
 goodResults = []
 badResults = []
-
 
 txtList = os.listdir(resultPath)
 picList = os.listdir(allPath)
@@ -42,19 +48,22 @@ for resFn in txtList:
 		result = resFile.read()
 		result = result.replace("\n","")
 		resultNum = int(result[0])
-		result = (resIndex[resultNum] + ":\t" + resFn.replace(".txt", ".jpg") )
+		result = (resIndex[resultNum] + ":\t" + resFn )
 
 		if( "correct" == resIndex[resultNum]):	# good Indi
-			goodResults.append(result)
+			goodResults.append(result.replace(".txt", ".jpg"))
 		else:	# bad Indi
-			badResults.append(result)
+			badResults.append(result.replace(".txt", ".jpg"))
 		
 		resFile.close()
 		# print(resFn)
 
+
+jpgList = [w.replace(".txt", ".jpg") for w in txtList]
+
 '''	resort images section:
 '''
-if(len(txtList) > 0):
+if(len(jpgList) > 0):
 	goodPath = "../output/good"
 	badPath = "../output/bad"
 	noResPath = "../output/noResult"
@@ -67,20 +76,27 @@ if(len(txtList) > 0):
 	
 		# os.rename( , ) ... nope, kopieren, NICHT verschieben!
 	
-	print("input consists of ", len(picList), "Images, with ", len(txtList), "Results: \n good Indies:")
+	
 	for line in goodResults:
-		print(line)
+		# print(line)
 		shutil.copy(allPath + "/" + line.split("\t")[1], goodPath + "/" +line.split("\t")[1])
-	print("\n bad Indies:")
+	# print("\n bad Indies:")
 
 	for line in badResults:
-		print(line)
+		# print(line)
 		shutil.copy(allPath + "/" + line.split("\t")[1], badPath + "/" +line.split("\t")[1])
-	
-	noResults = set(picList).difference(txtList)
-	print(len(noResults))
 
+	noResults = set(picList).difference( set(jpgList))
+	for line in noResults:
+		# print(line)
+		shutil.copy(allPath + "/" + line, noResPath + "/" + line)
+
+	print("input consists of ", len(picList), "Images, with \n ", len(jpgList), "Results: \n ",
+	len(goodResults), " good Indies, and\n ", 
+	len(badResults), " bad indies, and\n ",
+	len(noResults), " no Results found")
+	
 else:
 	print("input consists of ", len(picList), "Images, with no Results found")
 
-# shutil.rmtree("../res")
+shutil.rmtree("../res")
