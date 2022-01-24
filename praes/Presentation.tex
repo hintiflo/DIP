@@ -4,7 +4,7 @@
 
 
 \input{praes_header}    % Darko header.tex uebernommen -> alle Packages hier drinnen
-\author{Florian Hinterleitner}
+\author{Berghuber und Hinterleitner}
 \title{DIP3}
 \subtitle{Indy Erkennung}
 % \setbeamercovered{transparent} 
@@ -14,7 +14,7 @@
 
 %\logo{} 
 % \institute{FHOÖ, Hagenberg} 
-\date{12. November 2021} 
+\date{24.01.2022} 
 %\subject{} 
 
 \usepackage[export]{adjustbox}
@@ -41,29 +41,39 @@
 		\frametitle{Konzept}
 		\begin{itemize}[label={\color{myTitleColour}\textbullet}]
 		\item Ansatz per KI
-		\item	Wasn das?, warum das?, wie gett das?
+		\item YOLOV5 als Modell gewählt (15MByte) 
+		\item Augmentierung der Trainingsdaten \\ (rotieren/spiegeln vorhandener Bilder)
+		\item Training der KI im google colab \\ Dauer: 45 ...90min, je nach GPU
+		\item Auswertung der Ergebnisse mittels eigenem py-Script
 		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}
 		\frametitle{YOLOv5}
 		\begin{itemize}[label={\color{myTitleColour}\textbullet}]
-		\item Ansatz per KI
-		\item	Wasn das?, warum das?, wie gett das?
+		\item You Only Look Once
+		\item Grundlegendes Konzept von Joseph Redmon
+		\item v5 ist in pytorch implementiert
+		\item open-source, lizensiert unter GPL
+		\item Modell für object detection
+		\item Model 's' (zweitkleinstes) mit 232 Layers wurde verwendet
 		\end{itemize}
+		\centering
+		\includegraphics[height=.2\textheight]{yoloLogo.png}
+
 	\end{frame}
 	
-
-% \section{Umsetzung}
-	% \begin{frame}
-	% \centering https://www.ethercat.org/de/products.html
-	% \end{frame}
-
 \section{Ergebnisse}
 \begin{frame}
 	\frametitle{Trainings-Ergebnisse}
 		\centering
 		\includegraphics[height=.9\textheight]{../sModel/confusion_matrixV3.png}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Demo}
+		\centering 
+		\Huge \textbf{DEMO TIME} \\
 \end{frame}
 
 \begin{frame}
@@ -73,8 +83,8 @@
      \begin{column}{0.5\textwidth}
 		\begin{itemize}[label={\color{myTitleColour}\textbullet}]
 		\item 123 Eingabebilder
-		\item 33 als korrekte Indies 
-		\item 78 als fehlerhafte Indies 
+		\item 31 als korrekte Indies 
+		\item 80 als fehlerhafte Indies 
 		\item 12 ohne Indy
 		\end{itemize}
      \end{column}

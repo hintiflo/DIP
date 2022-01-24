@@ -15,7 +15,7 @@ import time
 
 
 start = time.perf_counter_ns()
-os.system("python yolov5-master/detect.py --weights ../smodel/modelV3.pt --source ../img/All --save-txt --max-det 1 --nosave --name res --imgsz 308 --project ../ ")
+os.system("python yolov5-master/detect.py --weights ../smodel/modelV3.pt --source ../img/All --save-txt --max-det 1 --nosave --name res --imgsz 416 --project ../ ")
 end = time.perf_counter_ns()
 
 print("elapsed ms: ")
