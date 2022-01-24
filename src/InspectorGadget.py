@@ -3,23 +3,12 @@ import re
 import shutil
 import time
 
-# TODO: difference List fuer noResults
-# TODO: eigenltiche Analyse direkt aus diesem py heraus starten
-# TODO: Ordnerstruktur ueberarbeiten, am ende des Codes aufraeumen
-# TODO: yolo nachtrainieren
-# TODO: Praesentationsfolien
-# TODO: %te bzw Statkstik der Analyse printen
-# TODO: 
-
-# python yolov5-master/detect.py --weights ../smodel/modelV2.pt --source ../img/All --save-txt --max-det 1 --nosave --name ../../../runs/exp --imgsz 416
-
 
 start = time.perf_counter_ns()
 os.system("python yolov5-master/detect.py --weights ../smodel/modelV3.pt --source ../img/All --save-txt --max-det 1 --nosave --name res --imgsz 416 --project ../ ")
 end = time.perf_counter_ns()
 
-print("elapsed ms: ")
-print( (end - start)/1000000)
+print("time total: \n\t", round((end - start)/10**9, 2), "s")
 
 
 resultPath = "../res/labels"
@@ -91,9 +80,9 @@ if(len(jpgList) > 0):
 		# print(line)
 		shutil.copy(allPath + "/" + line, noResPath + "/" + line)
 
-	print("input consists of ", len(picList), "Images, with \n ", len(jpgList), "Results: \n ",
-	len(goodResults), " good Indies, and\n ", 
-	len(badResults), " bad indies, and\n ",
+	print("input consists of ", len(picList), "Images, with ", len(jpgList), "Results: \n\t ",
+	len(goodResults), " good Indies, and\n\t ", 
+	len(badResults), " bad indies, and\n\t ",
 	len(noResults), " no Results found")
 	
 else:
