@@ -80,7 +80,7 @@ if(len(jpgList) > 0):
 		# print(line)
 		shutil.copy(allPath + "/" + line, noResPath + "/" + line)
 
-	print("input consists of ", len(picList), "Images, with ", len(jpgList), "Results: \n\t ",
+	print("\ninput consists of ", len(picList), "Images, with ", len(jpgList), "Results: \n\t ",
 	len(goodResults), " good Indies, and\n\t ", 
 	len(badResults), " bad indies, and\n\t ",
 	len(noResults), " no Results found")
